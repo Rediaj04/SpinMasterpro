@@ -48,3 +48,31 @@ code {
     font-size: 14px;
   }
 }
+
+.dado-animado {
+  position: static;
+  left: unset;
+  top: unset;
+  transform: none;
+  animation: dado-gira 3.5s linear infinite;
+}
+
+@keyframes dado-gira {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Ajuste para el contenedor del header para que el dado pueda moverse */
+.header-animado {
+  position: relative;
+  overflow: visible;
+}
+
+.sorteosfast-animado {
+  animation: texto-brillo 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes texto-brillo {
+  0% { text-shadow: 0 0 0px #fff, 0 0 0px #00bcd4; }
+  100% { text-shadow: 0 0 12px #fff, 0 0 8px #00bcd4; }
+}

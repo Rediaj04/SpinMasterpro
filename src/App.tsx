@@ -162,13 +162,13 @@ function App() {
       )}
       {/* Header */}
       <AppBar position="static" elevation={0} sx={{ background: '#23283a', color: textMain, borderBottom: 'none', px: 0 }}>
-        <Toolbar sx={{ justifyContent: 'flex-start', minHeight: 64, px: { xs: 1, md: 6 } }}>
+        <Toolbar sx={{ justifyContent: 'flex-start', minHeight: 64, px: { xs: 1, md: 6 } }} className="header-animado">
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             {/* Logo de dado */}
-            <Box sx={{ width: 36, height: 36, background: accent, borderRadius: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', mr: 1 }}>
+            <Box sx={{ width: 36, height: 36, background: accent, borderRadius: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', mr: 1 }} className="dado-animado">
               <CasinoRoundedIcon sx={{ color: '#181c24', fontSize: 28 }} />
             </Box>
-            <Typography variant="h5" sx={{ fontWeight: 700, letterSpacing: 1, color: textMain }}>
+            <Typography variant="h5" sx={{ fontWeight: 700, letterSpacing: 1, color: textMain }} className="sorteosfast-animado">
               SorteosFast
             </Typography>
           </Box>
