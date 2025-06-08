@@ -77,6 +77,9 @@ function App() {
   const handleStopSpinning = () => {
     setMustSpin(false);
     setShowConfetti(true);
+    // Reproducir sonido de ganador
+    const audio = new Audio(process.env.PUBLIC_URL + '/sonidos/ganador.mp3');
+    audio.play();
     setTimeout(() => setShowConfetti(false), 7000); // confeti por 7s
   };
   const handleAddEntrada = () => {
