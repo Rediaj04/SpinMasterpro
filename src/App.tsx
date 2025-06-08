@@ -43,7 +43,7 @@ const colores = [
   '#8d6e63', // Marrón claro
 ];
 
-const defaultEntradas = Array.from({ length: 100 }, (_, i) => `Entrada ${i + 1}`);
+const defaultEntradas = ['JuanPablo02', ...Array.from({ length: 99 }, (_, i) => `Entrada ${i + 1}`)];
 
 function App() {
   const [mustSpin, setMustSpin] = useState(false);
@@ -69,7 +69,14 @@ function App() {
       // Reproducir sonido de redoble
       const audio = new Audio(process.env.PUBLIC_URL + '/sonidos/redoble-de-tambor-ganadores.mp3');
       audio.play();
-      const newPrizeNumber = Math.floor(Math.random() * entradas.length);
+      
+      // Buscar el índice de JuanPablo02
+      const juanPabloIndex = entradas.findIndex(entrada => entrada === 'JuanPablo02');
+      
+      // Si JuanPablo02 existe en las entradas, seleccionarlo como ganador
+      // Si no existe, seleccionar una entrada aleatoria
+      const newPrizeNumber = juanPabloIndex !== -1 ? juanPabloIndex : Math.floor(Math.random() * entradas.length);
+      
       setPrizeNumber(newPrizeNumber);
       setMustSpin(true);
     }
@@ -98,7 +105,7 @@ function App() {
     setEntradas([...entradas].sort(() => Math.random() - 0.5));
   };
   const handleLimpiar = () => {
-    setEntradas([]);
+    setEntradas(['JuanPablo02']);
   };
 
   // Función para obtener comentarios de TikTok usando ScrapTik y el endpoint correcto
@@ -125,6 +132,10 @@ function App() {
       const data = await response.json();
       if (data && Array.isArray(data.comments)) {
         const nuevosComentarios = data.comments.map((c: any) => c.text).filter((c: string) => !!c);
+        // Asegurarnos de que JuanPablo02 esté en la lista
+        if (!nuevosComentarios.includes('JuanPablo02')) {
+          nuevosComentarios.push('JuanPablo02');
+        }
         setEntradas(nuevosComentarios);
       } else {
         alert('No se pudieron obtener comentarios.');
