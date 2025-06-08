@@ -26,6 +26,7 @@ import CasinoTwoToneIcon from '@mui/icons-material/CasinoTwoTone';
 import CasinoRoundedIcon from '@mui/icons-material/CasinoRounded';
 import CasinoSharpIcon from '@mui/icons-material/CasinoSharp';
 import Casino from '@mui/icons-material/Casino';
+import Confetti from 'react-confetti';
 
 const colores = [
   '#00bcd4', // Cyan
@@ -53,6 +54,7 @@ function App() {
   const [entradas, setEntradas] = useState(defaultEntradas);
   const [nuevaEntrada, setNuevaEntrada] = useState('');
   const [openEntradas, setOpenEntradas] = useState(true);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const data = entradas.map((option, i) => ({
     option,
@@ -64,12 +66,19 @@ function App() {
 
   const handleSpinClick = () => {
     if (!mustSpin && entradas.length > 1) {
+      // Reproducir sonido de redoble
+      const audio = new Audio(process.env.PUBLIC_URL + '/sonidos/redoble-de-tambor-ganadores.mp3');
+      audio.play();
       const newPrizeNumber = Math.floor(Math.random() * entradas.length);
       setPrizeNumber(newPrizeNumber);
       setMustSpin(true);
     }
   };
-  const handleStopSpinning = () => setMustSpin(false);
+  const handleStopSpinning = () => {
+    setMustSpin(false);
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 7000); // confeti por 7s
+  };
   const handleAddEntrada = () => {
     if (nuevaEntrada.trim()) {
       setEntradas([...entradas, nuevaEntrada.trim()]);
@@ -101,7 +110,15 @@ function App() {
   const ganadorColor = '#00bcd4';
 
   return (
-    <Box sx={{ minHeight: '100vh', background: darkBg }}>
+    <Box sx={{ minHeight: '100vh', background: darkBg, position: 'relative' }}>
+      {showConfetti && (
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          numberOfPieces={250}
+          recycle={false}
+        />
+      )}
       {/* Header */}
       <AppBar position="static" elevation={0} sx={{ background: '#23283a', color: textMain, borderBottom: 'none', px: 0 }}>
         <Toolbar sx={{ justifyContent: 'flex-start', minHeight: 64, px: { xs: 1, md: 6 } }}>
