@@ -1,46 +1,126 @@
-# Getting Started with Create React App
+# SorteosFast - Ruleta de Sorteos con TikTok
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+¡Bienvenido a **SorteosFast**! Una aplicación web moderna y visualmente atractiva para realizar sorteos aleatorios, ya sea con tus propias entradas o con los comentarios de un video de TikTok.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Características principales
 
-### `npm start`
+- **Ruleta animada** y responsiva, con colores vibrantes y confeti al anunciar el ganador.
+- **Entradas manuales**: agrega, elimina, ordena o mezcla tus propias opciones para el sorteo.
+- **Sorteo con comentarios de TikTok**: pega el enlace de un video y la app extrae automáticamente los comentarios para usarlos en la ruleta.
+- **Animaciones modernas**: dado giratorio en el header, efectos visuales y diseño profesional.
+- **Sonidos de redoble y ganador** para una experiencia emocionante.
+- **Soporte para hasta 100 entradas** (o más) sin perder legibilidad.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🛠️ Instalación y uso
 
-### `npm test`
+1. **Clona el repositorio:**
+   ```bash
+   git clone https://github.com/Rediaj04/SpinMasterpro.git
+   cd SpinMasterpro
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Instala las dependencias:**
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
 
-### `npm run build`
+3. **Configura tu API Key de RapidAPI:**
+   - Crea un archivo llamado `.env` en la raíz del proyecto.
+   - Agrega la siguiente línea (reemplaza con tu propia clave):
+     ```
+     REACT_APP_RAPIDAPI_KEY=tu_api_key_aqui
+     ```
+   - Puedes obtener tu API Key gratis en [RapidAPI](https://rapidapi.com/) buscando la API "ScrapTik".
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Inicia la app en modo desarrollo:**
+   ```bash
+   npm start
+   # o
+   yarn start
+   ```
+   La app estará disponible en [http://localhost:3000](http://localhost:3000)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🎲 ¿Cómo funciona?
 
-### `npm run eject`
+### 1. **Entradas manuales**
+- Agrega tus propias opciones para el sorteo.
+- Puedes ordenar, mezclar o limpiar la lista.
+- Elimina cualquier entrada con el ícono de papelera.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 2. **Comentarios de TikTok**
+- Ve a TikTok y copia el enlace de un video público.
+- Pega el enlace en la sección "Comentarios de TikTok" y haz clic en "Obtener comentarios".
+- La app extraerá hasta 100 comentarios y los usará como entradas en la ruleta.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. **Gira la ruleta**
+- Haz clic en "COMENZAR" para girar la ruleta.
+- Se reproducirá un sonido de redoble y, al finalizar, confeti y sonido de ganador.
+- El ganador se muestra destacado debajo de la ruleta.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 📦 Estructura del proyecto
 
-## Learn More
+- `src/` — Código fuente principal (componentes, estilos, lógica)
+- `public/sonidos/` — Archivos de sonido para los efectos
+- `.env` — Tu clave privada de RapidAPI (no la compartas)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔑 Sobre la API de TikTok (ScrapTik)
+- Usamos la API pública de [ScrapTik en RapidAPI](https://rapidapi.com/).
+- Solo necesitas tu API Key y pegar el enlace del video.
+- La app extrae el ID del video automáticamente.
+
+---
+
+## 📝 Notas y recomendaciones
+- No compartas tu API Key públicamente.
+- Si la API de TikTok cambia, solo tendrás que actualizar la función de extracción.
+- Puedes personalizar colores, sonidos y animaciones a tu gusto.
+
+---
+
+## 👨‍💻 Autor y créditos
+- Inspirado en appsorteos.com y mejorado para una experiencia moderna.
+- Desarrollado por [Rediaj04](https://github.com/Rediaj04).
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/Rediaj04">
+          <img src="https://github.com/Rediaj04.png" width="100px;" alt=""/>
+          <br />
+          <b>Rediaj04</b>
+          <br />
+          <img src="https://img.shields.io/badge/GitHub-Rediaj04-181717?logo=github" alt="GitHub"/>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
+## 🛠️ Tecnologías usadas
+
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" width="50"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" width="50"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" alt="Material UI" width="50"/>
+  <img src="https://toppng.com/uploads/preview/rapid-api-logo-png-free-png-images-473107.png" alt="RapidAPI" width="80"/>
+  <img src="https://raw.githubusercontent.com/github/explore/main/topics/css/css.png" alt="CSS" width="50"/>
+</p>
+
+---
+
+¡Disfruta sorteando con estilo! 🎉
